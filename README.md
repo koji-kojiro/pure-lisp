@@ -9,16 +9,18 @@ $ make
 
 An excutable file named `lisp` will be created.
 
-To run a script:
 ```shell
-$ ./lisp < foo.lisp
-```
+$ ./lisp --help
+usage: lisp [-h] [-e [ext [ext ...]]] [--list-ext] [file]
 
-To run REPL:
+positional arguments:
+  file                  lisp source code.
 
-```shell
-$ ./lisp --repl
-LISP> 
+optional arguments:
+  -h, --help            show this help message and exit
+  -e [ext [ext ...]], --ext [ext [ext ...]]
+                        enable extensions.
+  --list-ext            list avilable extensions.
 ```
 
 ## License
