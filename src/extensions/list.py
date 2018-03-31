@@ -7,7 +7,6 @@ functions = {
     "list": lambda *args: list(args),
     "car": lambda lst: lst[0],
     "cdr": lambda lst: lst[1:],
-    "nth": lambda n, lst: lst[n],
     "length": len,
 }
 
