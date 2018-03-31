@@ -78,7 +78,7 @@ readtable = {
 }
 
 delimiters = string.whitespace
-validchars = string.ascii_letters + string.digits + "-+*/%=!?<>^&"
+validchars = string.ascii_letters + string.digits + ":-+*/%=!?<>^&"
 
 def read(stream=sys.stdin, eof_error_p=True):
     symbol = ""
