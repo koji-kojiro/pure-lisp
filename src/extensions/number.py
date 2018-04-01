@@ -1,16 +1,36 @@
 from . import _import
 import read
+import repl
 import builtin
+
+_help ="""\
+
+[Extension:number]
+Functions:
+    +, -, *, /: (+ `num1` `num2` ...)
+        perform general numerical operations.
+
+Special forms:
+    number: (number `symbol`)
+        convert the given symbol to a number.
+"""
+
+repl._help += _help
 
 special_forms = {
     "number": lambda number, env, hook: float(number),
 }
 
+from functools import reduce
+
+def make_operator(op):
+    return lambda *args: reduce(op, args)
+
 functions = {
-    "+": float.__add__,
-    "-": float.__sub__,
-    "*": float.__mul__,
-    "/": float.__truediv__,
+    "+": make_operator(float.__add__),
+    "-": make_operator(float.__sub__),
+    "*": make_operator(float.__mul__),
+    "/": make_operator(float.__truediv__),
 }
 
 builtin.special_forms.update(special_forms)
