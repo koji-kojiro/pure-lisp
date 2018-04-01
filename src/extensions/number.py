@@ -46,7 +46,7 @@ def read_number(stream):
     num_string = ""
     stream.seek(stream.tell() -1)
     char = read.peek_char(stream)
-    while char in digits + ".":
+    while char in digits + "." and char:
         num_string += read.read_char(stream)
         char = read.peek_char(stream)
     return ["number", num_string]
