@@ -16,7 +16,7 @@ functions = {
 }
 
 constants = {
-    "nil": (),
+    "nil": [],
     "t": True,
 }
 

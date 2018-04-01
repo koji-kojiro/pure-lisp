@@ -1,7 +1,7 @@
 from builtin import functions
 
 def pprint(value, end="\n"):
-    if value is ():
+    if not value:
         print("nil", end=end)
     elif value is True:
         print("t", end=end)
