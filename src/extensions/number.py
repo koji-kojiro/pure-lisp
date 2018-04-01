@@ -7,8 +7,8 @@ _help ="""\
 
 [Extension:number]
 Functions:
-    +, -, *, /: (+ `num1` `num2` ...)
-        perform general numerical operations.
+    +, -, *, /: (+ `number` ...)
+        perform general numerical operations over the given numbers.
 
 Special forms:
     number: (number `symbol`)
