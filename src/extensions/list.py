@@ -1,7 +1,20 @@
 from functools import reduce
 from itertools import permutations
 from . import _import
+import repl
 import builtin
+
+_help = """\
+
+[Extension: list]
+Functions:
+    list: (list `symbol` ...)
+        make a list with the given symbols as its elements.
+    length: (length 'list`)
+        return the length of the given list.
+"""
+
+repl._help += _help
 
 functions = {
     "list": lambda *args: list(args),
