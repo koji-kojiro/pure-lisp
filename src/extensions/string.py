@@ -1,6 +1,21 @@
 from . import _import
 import read
+import repl
 import builtin
+
+_help ="""\
+
+[Extension:string]
+Functions:
+    readline: (readline)
+        read one line from standard input into a string.
+
+Special forms:
+    string: (string `symbol`)
+        convert the given symbol to a string.
+"""
+
+repl._help += _help
 
 class LispString(str):
     def __eq__(self, other):
