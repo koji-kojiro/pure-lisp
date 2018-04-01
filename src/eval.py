@@ -6,6 +6,8 @@ env = {}
 def eval_sexp(sexp, env=env):
     eval_in_env = lambda _: eval_sexp(_, env)
     if type(sexp) is list:
+        if not sexp:
+            return sexp
         car = sexp[0]
         func, kind = symbol_value(car if type(car) is str else eval_in_env(car), env)
         if kind is Kind.Special:
