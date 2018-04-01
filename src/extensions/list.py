@@ -6,7 +6,7 @@ import builtin
 
 _help = """\
 
-[Extension: list]
+[Extension:list]
 Functions:
     list: (list `symbol` ...)
         make a list with the given symbols as its elements.
