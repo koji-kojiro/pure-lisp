@@ -12,7 +12,7 @@ functions = {
     "cons": lambda a, d: [a, d],
     "car": lambda cons: cons[0],
     "cdr": lambda cons: cons[1],
-    "eq": lambda one, other: "t" if one is other else "nil",
+    "eq": lambda one, other: "t" if one == other else "nil",
 }
 
 constants = {
