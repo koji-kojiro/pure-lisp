@@ -33,7 +33,7 @@ Special forms:
 
 
 class Repl(Cmd):
-    intro=f"LISP on Python {version} on {platform}\nType :help, :copyright for more information.\n"
+    intro=f"LISP on Python {version} on {platform}\nType :help, :copyright for more information, Ctrl-d to quit.\n"
     prompt = "> "
     
     def do_help(self, *args):
@@ -49,13 +49,20 @@ class Repl(Cmd):
                 print(e)
         else:
             return True
-    
+
     def completenames(self, text, line, begidx, endidx):
         names = dict(**functions, **special_forms, **constants, **env).keys()
         return [name for name in names if name.startswith(line[begidx:endidx])]
     
     def completedefault(self, *args):
         return self.completenames(*args)
+
+try:
+    import readline
+    delims = "".join(s for s in readline.get_completer_delims() if not s in validchars)
+    readline.set_completer_delims(delims)
+except ImportError:
+    pass
 
 def repl():
     constants.update({":help": _help, ":copyright": "Copyright (C) 2018 TANI Kojiro<kojiro0531@gmail.com>"})
